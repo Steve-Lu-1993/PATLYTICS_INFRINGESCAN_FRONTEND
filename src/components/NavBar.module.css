@@ -1,0 +1,7 @@
+.navbar {
+  @apply p-4 flex justify-between items-center;
+}
+
+.logo {
+  width: 120px;
+}
