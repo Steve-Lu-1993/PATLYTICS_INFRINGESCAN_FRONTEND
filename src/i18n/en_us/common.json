@@ -1,11 +1,14 @@
 {
   "login": "Login",
   "sign_up": "Sign Up",
+  "logout": "Logout",
   "welcome_back": "Welcome back",
   "create_account": "Create an account",
-  "full_name": "Full Name",
+  "first_name": "First Name",
+  "last_name": "Last Name",
   "email": "Email",
   "password": "Password",
   "search": "Search",
-  "slogan":"Protect Your Ideas. Secure Your Future."
+  "slogan":"Protect Your Ideas. Secure Your Future.",
+  "search_history": "Search History"
 }
