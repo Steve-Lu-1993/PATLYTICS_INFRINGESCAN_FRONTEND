@@ -1,0 +1,10 @@
+{
+  "port": 5373,
+  "server": {
+    "baseDir": "./"
+  },
+  "ghostMode": false,
+  "notify": false,
+  "open": false,
+  "files": false
+}
