@@ -11,33 +11,31 @@ import useGeneralStore from "@/stores/useGeneralStore";
 const SearchResults = () => {
   let [searchParams] = useSearchParams();
   const comparison_uuid = searchParams.get("u");
-  const {globalIsLoading} = useGeneralStore();
+  const { globalIsLoading } = useGeneralStore();
 
   const comparisonQuery = useGenericQuery({
-    endpoint:`/comparison/getComparisonByUuid/${comparison_uuid}`,
-    enabled:!!comparison_uuid,
-    dependencies:[comparison_uuid]
-  })
+    endpoint: `/comparison/getComparisonByUuid/${comparison_uuid}`,
+    enabled: !!comparison_uuid,
+    dependencies: [comparison_uuid],
+  });
 
-  if(comparisonQuery.isLoading){
-    return <div>Loading...</div>
+  if (comparisonQuery.isError) {
+    return <QueryError />;
   }
 
-  if(comparisonQuery.isError){
-    return <QueryError/>
-  }
-
-  const comparisonData = comparisonQuery?.data.data
+  const comparisonData = comparisonQuery?.data?.data;
 
   return (
     <>
       <NavBar />
-      <div className="container mx-auto mt-4 px-2 flex flex-col justify-center items-center gap-4">
-        <LoadingMask isLoading={globalIsLoading} text="Analyzing patents, please wait..." />
-        <SearchBox type="in_page" company_uuid={comparisonData?.company.uuid} patent_publication_number={comparisonData?.patent.publication_number}/>
-        <PatentCard patent={comparisonData?.patent}/>
-        <InfringeProduct result={comparisonData?.comparison_results}/>
-      </div>
+      {!comparisonQuery.isLoading && (
+        <div className="container mx-auto mt-4 px-2 flex flex-col justify-center items-center gap-4">
+          <LoadingMask isLoading={globalIsLoading} text="Analyzing patents, please wait..." />
+          <SearchBox type="in_page" company_uuid={comparisonData?.company.uuid} patent_publication_number={ comparisonData?.patent.publication_number } />
+          <PatentCard patent={comparisonData?.patent} />
+          <InfringeProduct result={comparisonData?.comparison_results} />
+        </div>
+      )}
     </>
   );
 };
