@@ -1,5 +1,5 @@
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { AppSidebar } from "./AppSideBar";
+import { AppSidebar } from "./AppSidebar";
 import { useGenericQuery } from "@/hooks/useGenericQuery";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
