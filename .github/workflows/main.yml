@@ -25,5 +25,5 @@ jobs:
     - name: Build and Push Docker Image
       run: |
         docker build --build-arg VITE_BACKEND_API_BASE_URL=https://patlytics-inf.gen-area.com/api \
-                     -t ${{ secrets.DOCKER_USERNAME }}/patlytics-inf-app:main .
+                     -t ${{ secrets.DOCKER_USERNAME }}/patlytics-inf-app:main -f Dockerfile.remote .
         docker push ${{ secrets.DOCKER_USERNAME }}/patlytics-inf-app:main

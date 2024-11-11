@@ -1,0 +1,16 @@
+services:
+  patlytics-inf-app:
+    build:
+      context: .
+      args:
+        VITE_BACKEND_API_BASE_URL: ${VITE_BACKEND_API_BASE_URL}
+    container_name: patlytics-inf-app
+    ports:
+      - "5373:5373"
+    networks:
+      - docker_default
+networks:
+  docker_default:
+    driver: bridge
+    external: true
+    name: patlytics-inf-network

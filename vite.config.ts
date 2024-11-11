@@ -6,11 +6,11 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   server: {
     port: 5373,
-    // hmr:false
+    hmr:false
   },
-  // define:{
-  //   'import.meta.env.VITE_BACKEND_API_BASE_URL': JSON.stringify(process.env.VITE_BACKEND_API_BASE_URL),
-  // },
+  define:{
+    'import.meta.env.VITE_BACKEND_API_BASE_URL': JSON.stringify(process.env.VITE_BACKEND_API_BASE_URL),
+  },
   plugins: [react()],
   resolve: {
     alias: {
