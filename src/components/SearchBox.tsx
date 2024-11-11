@@ -117,6 +117,8 @@ const SearchBox = ({
     }
     if (patent_publication_number) {
       setPatentPublicationNumber(patent_publication_number);
+      setPatentKeyword(patent_publication_number);
+      patentsQuery.refetch();
     }
   }, [company_uuid, patent_publication_number]);
 

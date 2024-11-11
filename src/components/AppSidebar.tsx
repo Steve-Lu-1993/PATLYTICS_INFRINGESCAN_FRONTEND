@@ -13,7 +13,7 @@ export function AppSidebar({ userComparisonData }: AppSidebarType) {
   const { t } = useTranslation(["common"]);
   const navigate = useNavigate()
 
-  const comparisonHistory = userComparisonData.sort((a: { id: number; },b: { id: number; })=>b.id - a.id).map((uc: UserComparison) => {
+  const comparisonHistory = userComparisonData?.sort((a: { id: number; },b: { id: number; })=>b.id - a.id).map((uc: UserComparison) => {
     return {
       comparison_uuid: uc.patentCompanyComparison.uuid,
       company_name: uc.patentCompanyComparison.company.name,
@@ -33,7 +33,7 @@ export function AppSidebar({ userComparisonData }: AppSidebarType) {
         <ScrollArea className="h-[calc(100vh)]">
           <div className="space-y-4 p-4">
             <div className="text-md font-semibold">{t("search_history")}</div>
-            {comparisonHistory.map(
+            {comparisonHistory?.map(
               (item: {
                 comparison_uuid: string;
                 company_name: string;

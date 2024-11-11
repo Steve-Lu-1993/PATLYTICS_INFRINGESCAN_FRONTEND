@@ -28,7 +28,7 @@ const NavBar = () => {
 
   useEffect(() => {
     if (userQuery.isSuccess) {
-      setUserNameFirstLetter(userQuery.data.data.first_name[0].toUpperCase());
+      setUserNameFirstLetter(userQuery?.data?.data?.first_name[0].toUpperCase());
     }
   })
 
@@ -69,7 +69,7 @@ const NavBar = () => {
             </Popover>
           </>
         ) : (
-          <>
+          <div className="flex flex-row gap-2">
             <Button onClick={() => navigate("/authorize?a=login")}>
               {t("login")}
             </Button>
@@ -79,7 +79,7 @@ const NavBar = () => {
             >
               {t("sign_up")}
             </Button>
-          </>
+          </div>
         )}
       </div>
     </nav>
