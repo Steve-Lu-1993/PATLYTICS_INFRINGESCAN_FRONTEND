@@ -72,7 +72,7 @@ const Authorize = () => {
                 title: "Registration Success",
                 description: "You have successfully registered",
               });
-             
+              window.location.reload();
             } else {
               toast({
                 title: "Registration Error",
