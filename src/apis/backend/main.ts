@@ -1,7 +1,7 @@
 import axios from "axios";
 import refreshAccessToken from "./refreshToken";
 
-const baseURL = import.meta.env.VITE_BACKEND_API_BASE_URL as string
+const baseURL = import.meta.env.VITE_BACKEND_API_BASE_URL || "http://localhost:8060/api" as string 
 
 const AppBackendApi = axios.create({
   baseURL,

@@ -18,7 +18,7 @@ import useGeneralStore from "@/stores/useGeneralStore";
 import { useToast } from "@/hooks/use-toast";
 import { UserAccessToken } from "@/types/entities/userAccessToken";
 import { User } from "@/types/entities/user";
-
+import { useNavigate } from "react-router-dom";
 const Authorize = () => {
   const { t } = useTranslation(["common"]);
   const [showPassword, setShowPassword] = useState(false);
@@ -30,7 +30,7 @@ const Authorize = () => {
   const [password, setPassword] = useState("");
   const { globalIsLoading, setGlobalIsLoading } = useGeneralStore();
   const { toast } = useToast();
-
+  const navigate = useNavigate();
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
@@ -244,6 +244,9 @@ const Authorize = () => {
                   <UserPlus className="mr-2 h-4 w-4" /> {t("sign_up")}
                 </>
               )}
+            </Button>
+            <Button className="mt-1 w-full bg-gray-200 text-gray-600 hover:bg-gray-300" type="button" onClick={() => navigate("/")}>
+              {t("back_to_home")}
             </Button>
           </form>
         </CardContent>
