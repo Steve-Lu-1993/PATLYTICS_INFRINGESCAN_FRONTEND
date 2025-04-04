@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import useGeneralStore from "@/stores/useGeneralStore";
+import { SidebarTrigger } from "./ui/sidebar";
 
 const NavBar = () => {
   const { t } = useTranslation(["common"]);
@@ -19,7 +20,12 @@ const NavBar = () => {
 
   return (
     <nav className={styles.navbar}>
-      <div className="col-span-4">
+      <div className="col-span-4 flex flex-row items-center gap-2">
+        {
+          user && (
+            <SidebarTrigger />
+          )
+        }
         <Link to="/">
           <img src={patlyticsLogo} alt="logo" className={styles.logo} />
         </Link>

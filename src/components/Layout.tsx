@@ -1,4 +1,4 @@
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "./AppSidebar";
 import { useGenericQuery } from "@/hooks/useGenericQuery";
 
@@ -29,7 +29,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <SidebarProvider>
       {userComparison.data && <AppSidebar userComparisonData={userComparisonData}/>}
       <main className="w-full">
-        <SidebarTrigger style={{ position: "absolute", bottom: "50vh" }} />
         {children}
       </main>
     </SidebarProvider>
